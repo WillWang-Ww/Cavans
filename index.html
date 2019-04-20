@@ -8,9 +8,23 @@
 
 <body>
     <canvas id="canvas" width="300" height="300"></canvas>
+    <button>橡皮擦</button>
+    
 </body>
 <script>
     var yyy = document.getElementById('canvas');
+    size1()
+    window.onresize = function(){
+        size1()
+    }
+
+    function size1(){
+        var pageWidth = document.documentElement.clientWidth
+        var pageHeight = document.documentElement.clientHeight
+        yyy.width = pageWidth
+        yyy.height = pageHeight
+    }
+
     var context = yyy.getContext('2d');
 
     function drawCircle(x, y, radius) {
@@ -34,7 +48,7 @@
             var y = a.clientY
             var newPoint = { x: x, y: y }
             drawCircle(x, y, 1)
-            drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint.y)
+            drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
             lastPoint = newPoint
         }
     }
@@ -46,10 +60,11 @@
         context.beginPath();
         context.moveTo(x1, y1) //begin
         context.lineWidth = 5
-        context.lineTo(x2,y2) //end
+        context.lineTo(x2, y2) //end
         context.stroke()
         context.closePath()
     }
 
 </script>
+
 </html>

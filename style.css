@@ -1,7 +1,12 @@
-.canvas{
+#canvas{
     background: green;
     display: block;
 }
 body{
     margin: 0;
+}
+button{
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
